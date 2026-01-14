@@ -3,6 +3,8 @@ include("conn.php");
 session_start();
 $error = '';
 
+$ShareCode = $_GET["code"] ?? '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $link = $_POST['link'] ?? '';
     $examinee = $_POST['examinee'] ?? '';
@@ -60,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Join quiz page</title>
     <link rel="stylesheet" href="style/quiz.css">
     <style>
-        
+
     </style>
 </head>
 
@@ -69,8 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="joinQuiz.php" method="post" id="form">
             <div class="quizBox" id="quizBox">
                 <h2>Join Quiz</h2>
-                <?php echo "<p class='error-message'>$error</p>"; ?>
-                <input type="text" placeholder="Paste share code here" name="link">
+                <?php
+                    echo "<p class='error-message'>$error</p>";
+                    echo "<input type='text' placeholder='Paste share code here' name='link' value=$ShareCode>";
+                ?>
                 <input type="text" placeholder="Enter name" name="examinee">
                 <button type="button" onclick="submitForm()">Join Quiz</button>
             </div>
@@ -81,9 +85,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         function submitForm() {
             link = document.getElementsByName('link')[0].value.trim();
             examinee = document.getElementsByName('examinee')[0].value.trim();
-            if((link == null || link == '')||(examinee == null || examinee == '')){
+            if ((link == null || link == '') || (examinee == null || examinee == '')) {
                 window.alert("Please fill the options");
-            }else{
+            } else {
                 document.getElementById('form').submit();
             }
         }

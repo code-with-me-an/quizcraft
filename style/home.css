@@ -411,22 +411,11 @@ p {
 }
 
 
-
-@media (max-width:600px) {
-    .generate-container .quizBox {
-        width: 100%;
-        min-width: 300px;
-    }
-}
-
 .error-message {
     color: #f04a3b;
     font-size: 18px;
     margin: 10px 0px;
 }
-
-
-
 
 
 .join-container .error-message {
@@ -779,10 +768,11 @@ footer p {
         top: -3px;
     }
 
-    .quizboxes .generatorBox span {
-        display: block;
-        font-size: 4.5vw;
-        padding: 12% 22%;
+    .generate-container{
+        width: 100%;
+    }
+    .generate-container .quizBox {
+        min-width: 330px;
     }
 
     .join-container{

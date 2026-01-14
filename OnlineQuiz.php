@@ -5,6 +5,8 @@ $title = $description = '';
 $error = '';
 date_default_timezone_set('Asia/Kolkata');
 
+
+
 if (!empty($_SESSION['share_code'])) {
     $share_code =  $_SESSION['share_code'] ?? '';
     $sql = "SELECT * FROM quizzes WHERE share_code = '$share_code'";

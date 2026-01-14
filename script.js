@@ -35,31 +35,6 @@ document.addEventListener("click", (e) => {
     }
 })
 
-const word = document.getElementById("changetext");
-const words = ["fastest", "simplest", "free", "easiest"];
-let currentIndex = 0;
-
-function changeText() {
-    word.innerText = words[currentIndex];
-    currentIndex = (currentIndex + 1) % words.length;
-}
-setInterval(changeText, 3000);
-
-const number = document.getElementById("people_number");
-
-let counter = 0;
-const limit = 200;
-
-const interval = setInterval(() => {
-    if (counter <= limit) {
-        number.innerHTML = counter;
-        counter++;
-    }
-    else {
-        clearInterval(interval);
-    }
-}, 20);
-
 
 
 // join quiz error handling
@@ -89,13 +64,13 @@ function nextBox(quizBox) {
             document.getElementById("quizBox" + (quizBox + 1)).classList.add("active");
         }
         else {
-            document.getElementById("emptyError1").innerText = "*empty input field*";
+            document.getElementById("emptyError1").innerText = "empty input field";
         }
     } else if (quizBox == 2) {
         num = document.getElementById("numQues").value.trim();
         if (num != null && num != "") {
             if (isNaN(num)) {
-                document.getElementById("emptyError2").innerText = "*not a number*";
+                document.getElementById("emptyError2").innerText = "not a number";
             } else {
                 document.getElementById("quizBox" + quizBox).classList.remove("active");
                 document.getElementById("quizBox" + (quizBox + 1)).classList.add("active");
@@ -122,7 +97,7 @@ function nextBox(quizBox) {
                 }
             }
         } else {
-            document.getElementById("emptyError2").innerText = "*empty input field*";
+            document.getElementById("emptyError2").innerText = "empty input field";
         }
     }
 }
@@ -151,6 +126,7 @@ function checkValid() {
     }
     return submitFlag;
 }
+
 
 
 

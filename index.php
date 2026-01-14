@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['share_code'] = $link;
                         $_SESSION['examinee'] = $examinee;
                         echo "<script>
-                            window.open('index.php','_blank');
+                            window.open('OnlineQuiz.php','_blank');
                         </script>";
                     }
                 }
@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
             <div class="join-container">
-                <form action="joinQuiz.php" method="post" id="form">
+                <form action="index.php" method="post" id="form">
                     <div class="quizBox" id="quizBox">
                         <h2>Join Quiz</h2>
                         <?php echo "<p class='error-message'>$error</p>"; ?>
@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" placeholder="Enter name" name="examinee">
                         <button type="button" onclick="submitForm()">Join Quiz</button>
                     </div>
-                </form> 
+                </form>
             </div>
         </div>
         <div class="howtomakeBox" id="help">
@@ -151,8 +151,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>1</h2>
                     <div id="card_1">
                         <span>Add Quiz Title</span>
-                        To start creating your quiz, first log in to the portal. 
-                        After logging in, add an appropriate title and description for the quiz, 
+                        To start creating your quiz, first log in to the portal.
+                        After logging in, add an appropriate title and description for the quiz,
                         then click the Next button at the bottom.
                     </div>
                 </div>
@@ -160,8 +160,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>2</h2>
                     <div id="card_2">
                         <span>Add questions</span>
-                        Add the number of questions you want to create, then click the Next button. 
-                        This creates the question skeleton. Now you can add detailed question text, 
+                        Add the number of questions you want to create, then click the Next button.
+                        This creates the question skeleton. Now you can add detailed question text,
                         options and the correct option, after click the Generate button to continue.. (maximum of 50 questions).
                     </div>
                 </div>
@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>3</h2>
                     <div id="card_3">
                         <span>Share quiz</span>
-                        After the quiz is created, a unique share code and a preview are generated. 
+                        After the quiz is created, a unique share code and a preview are generated.
                         The share code is provided to students to attend the created quiz.
                     </div>
                 </div>
@@ -184,7 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="company">
                 <h2>QuizCraft</h2>
                 <p>Quizcraft is a free and open source website provides
-                    Unlimited quiz Creation, Sharing and Join. Created for students 
+                    Unlimited quiz Creation, Sharing and Join. Created for students
                     and teachers to make online exams simple and fast.
                 </p>
             </div>
@@ -213,9 +213,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>&copy; 2026 Quizcraft, All Rights Reserved. | Made with in India</p>
     </footer>
     <script>
-
+        function submitForm() {
+            link = document.getElementsByName('link')[0].value.trim();
+            examinee = document.getElementsByName('examinee')[0].value.trim();
+            if ((link == null || link == '') || (examinee == null || examinee == '')) {
+                window.alert("Please fill the options");
+            } else {
+                document.getElementById('form').submit();
+            }
+        }
     </script>
     <script src="script.js"></script>
+    <script src="scriptHome.js"></script>
 </body>
 
 </html>

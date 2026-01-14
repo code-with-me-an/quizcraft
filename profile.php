@@ -118,7 +118,7 @@ if (isset($_REQUEST['logout'])) {
             }
         }
     }
-    
+
     ?>
     <div class="container">
         <div class="profile">
@@ -149,7 +149,7 @@ if (isset($_REQUEST['logout'])) {
             if (mysqli_num_rows($table) > 0) {
                 foreach ($quizzes as $quiz_id => $quiz) { ?>
                     <div class="quiz-row">
-                        <div><?php echo $quiz['title']; ?></div>
+                        <div class="title"><?php echo $quiz['title']; ?></div>
                         <div><?php
                                 $share_code = $quiz['share_code'];
                                 echo "<form action='preview.php' method='post'><button type='submit' name='preview' value='$share_code'>Link</button></form>"; ?>
@@ -160,6 +160,18 @@ if (isset($_REQUEST['logout'])) {
                     </div>
             <?php }
             } ?>
+        </div>
+        <div class="share-container">
+            <form onsubmit="return linkGenerator()">
+                <label for="shareCode">For Link:</label>
+                <div>
+                    <input type="text" name="shareCode" placeholder="Share Code" id="shareCode" required>
+                    <button type="submit">Generate</button>
+                </div>
+            </form>
+        </div>
+        <div class="link-container" id="link-container">
+            
         </div>
         <div class="search-container">
             <form action="profile.php" method="post">
@@ -197,8 +209,41 @@ if (isset($_REQUEST['logout'])) {
                 ?>
             </tbody>
         </table>
-
     </div>
+    <script>
+        flag=true;
+        function linkGenerator() {
+            if(flag == false) return false;
+            flag = false;
+            let code = document.getElementById("shareCode").value.trim();
+            const link = document.createElement("a");
+            let url = "localhost/quizcraft/joinQuiz.php?code=" + code;
+            link.href = "http://" + url;
+            link.textContent = url;
+            link.target = "_blank";
+            document.getElementById("link-container").appendChild(link);
+            document.getElementById("link-container").innerHTML += "<div><button onclick='shareQuiz()'><img src='photo/share.svg' height='40' ><span>Share</span></button><button onclick='copyLink()'><img src='photo/link.svg' height='40' ><span>Copy</span></button></div>";
+            return false;
+        }
+
+        function shareQuiz() {
+            let code = document.getElementById("shareCode").value.trim();
+            let link = "http://localhost/quizcraft/joinQuiz.php?code=" + code;
+            if (navigator.share) {
+                navigator.share({
+                    title: "Check this out!",
+                    text: "visit my quiz",
+                    url: link
+                });
+            }
+        }
+
+        function copyLink() {
+            let code = document.getElementById("shareCode").value.trim();
+            let link = "http://localhost/quizcraft/joinQuiz.php?code=" + code;
+            navigator.clipboard.writeText(link);
+        }
+    </script>
 </body>
 
 </html>

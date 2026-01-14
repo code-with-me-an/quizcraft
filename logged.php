@@ -230,6 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </script>
     <script src="script.js"></script>
+    <script src="scriptHome.js"></script>
 </body>
 
 </html>

@@ -137,7 +137,23 @@ nav {
 
 .heading p span {
     color: var(--blue-color);
+    position: relative;
 
+}
+ 
+.heading #changeText::after {
+  content: "|";
+  opacity: 1;
+  animation: blink 1s infinite;
+  color: var(--font-color);
+}
+
+@keyframes blink {
+  0%{ opacity: 1; }
+  25%{ opacity: 0; }
+  50% { opacity: 0; }
+  75% { opacity: 1; }
+  100% { opacity: 1; }
 }
 
 /* quizbox */

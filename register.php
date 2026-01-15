@@ -3,14 +3,14 @@ include("conn.php");
 $error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $checkEmail = mysqli_query($conn, "SELECT email FROM users WHERE email = '$email'");
-    if (mysqli_num_rows($checkEmail) > 0) {
-        $error = 'Email is already registered!';
+    $checkusername = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
+    if (mysqli_num_rows($checkusername) > 0) {
+        $error = 'username is already registered!';
     } else {
-        mysqli_query($conn, "INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')");
+        mysqli_query($conn, "INSERT INTO users(name,username,password) VALUES ('$name','$username','$password')");
         echo "<script>window.alert('Register successfully');
                 window.location.href='login.php';
                 </script>";
@@ -37,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php echo "<p class='error-message'>$error</p>"; ?>
                 <input type="text" name="name" placeholder="Name" id="name">
                 <span id="nameErr"></span>
-                <input type="email" name="email" placeholder="Email" id="email">
-                <span id="emailErr"></span>
+                <input type="username" name="username" placeholder="username" id="username">
+                <span id="usernameErr"></span>
                 <input type="password" name="password" placeholder="Password" id="password">
                 <span id="passErr"></span>
                 <button type="submit">Register</button>
@@ -49,16 +49,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script>
         function validate() {
             let nameErr = document.getElementById('nameErr');
-            let emailErr = document.getElementById('emailErr');
+            let usernameErr = document.getElementById('usernameErr');
             let passErr = document.getElementById('passErr');
 
             let name = document.getElementById('name').value.trim();
-            let email = document.getElementById('email').value.trim();
+            let username = document.getElementById('username').value.trim();
             let password = document.getElementById('password').value.trim();
 
             let validateFlag = true;
             nameErr.innerText = '';
-            emailErr.innerText = '';
+            usernameErr.innerText = '';
             passErr.innerText = '';
 
             if (name == '' || name == null) {
@@ -74,13 +74,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 validateFlag = true;
             }
-
-            if (email == '' || email == null) {
-                emailErr.innerText = '*email is required'
+            let lengthFlag = true;
+            let formatFlag = true;
+            
+            if (username == '' || username == null) {
+                usernameErr.innerText = '*Username is required';
                 validateFlag = false;
             } else {
-                validateFlag = true;
+                if (username.length < 5 || username.length > 15) {
+                    lengthFlag = false;
+                }
+                for (let i = 0; i < username.length; i++) {
+                    let ch = username[i];
+                    let isLower = (ch >= 'a' && ch <= 'z');
+                    let isUpper = (ch >= 'A' && ch <= 'Z');
+                    let isNumber = (ch >= '0' && ch <= '9');
+                    let isUnderscore = (ch === '_');
+                    if (!isLower && !isUpper && !isNumber && !isUnderscore) {
+                        formatFlag = false;
+                        break;
+                    }
+                }
+                if (lengthFlag == false) {
+                    usernameErr.innerText = '*username must be 5-15 characters';
+                    validateFlag = false;
+                } else if (formatFlag == false) {
+                    usernameErr.innerText = '*only letters, numbers, and _ allowed';
+                    validateFlag = false;
+                } else {
+                    usernameErr.innerText = '';
+                    validateFlag = true;
+                }
             }
+
 
             let spacial = "!@#$%^&*()";
             let spacialFlag = false;

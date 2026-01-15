@@ -1,12 +1,12 @@
 <?php
 include("conn.php");
 session_start();
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['username'])) {
     header("Location:login.php");
     exit();
 }
 $name = $_SESSION['name'] ?? '';
-$email = $_SESSION['email'] ?? '';
+$username = $_SESSION['username'] ?? '';
 $scoreFlag = false;
 $error = '';
 if (!empty($_POST['search'])) {
@@ -25,7 +25,7 @@ if (!empty($_POST['search'])) {
                     $quizRow = mysqli_fetch_assoc($table);
                     $quiz_id = $quizRow['quiz_id'] ?? '';
                     $id = $quizRow['user_id'] ?? '';
-                    $sql = "SELECT * FROM users WHERE email = '$email'";
+                    $sql = "SELECT * FROM users WHERE username = '$username'";
                     $row = mysqli_query($conn, $sql);
                     if (!$row) {
                         die("query creation failed " . mysqli_error($conn));
@@ -93,7 +93,7 @@ if (isset($_REQUEST['logout'])) {
     $quizzes = [];
     $result = [];
 
-    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $sql = "SELECT * FROM users WHERE username = '$username'";
     $row = mysqli_query($conn, $sql);
     if (!$row) {
         die("query creation failed " . mysqli_error($conn));
@@ -127,7 +127,7 @@ if (isset($_REQUEST['logout'])) {
             </div>
             <div class="name">
                 <h2><?php echo $name; ?></h2>
-                <p><?php echo $email; ?></p>
+                <p><?php echo $username; ?></p>
             </div>
             <div class="logout">
                 <form action="profile.php">
@@ -237,7 +237,6 @@ if (isset($_REQUEST['logout'])) {
                 });
             }
         }
-
         function copyLink() {
             let code = document.getElementById("shareCode").value.trim();
             let link = "http://localhost/quizcraft/joinQuiz.php?code=" + code;

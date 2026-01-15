@@ -3,6 +3,11 @@ include("conn.php");
 session_start();
 $error = '';
 
+$sql = "SELECT Count(*) as total_users FROM users";
+$table = mysqli_query($conn,$sql);
+$row = mysqli_fetch_assoc($table);
+$userCount = $row["total_users"] ?? 100;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $link = $_POST['link'] ?? '';
     $examinee = $_POST['examinee'] ?? '';
@@ -111,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <section class="heading">
             <h1>Design Smarter <span>Quizzes</span> Fast</h1>
-            <p>QuizCraft is the <span id="changetext">easiest</span> quiz maker</p>
+            <p>QuizCraft is <span id="changeText"></span> quiz maker</p>
         </section>
         <div class="quizboxes">
             <div class="createBox">
@@ -176,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="peoplecount">
-            <p><span id="people_number">0</span>+ People Used</p>
+            <p><span id="people_number" >0</span>+ People Used</p>
         </div>
     </main>
     <footer>
@@ -213,6 +218,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>&copy; 2026 Quizcraft, All Rights Reserved. | Made with in India</p>
     </footer>
     <script>
+        const userCount = <?php echo $userCount; ?>;
         function submitForm() {
             link = document.getElementsByName('link')[0].value.trim();
             examinee = document.getElementsByName('examinee')[0].value.trim();
@@ -223,7 +229,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     </script>
-    <script src="script.js"></script>
     <script src="scriptHome.js"></script>
 </body>
 

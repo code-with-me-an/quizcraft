@@ -2,7 +2,6 @@
 include("conn.php");
 session_start();
 $error = '';
-
 $ShareCode = $_GET["code"] ?? '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

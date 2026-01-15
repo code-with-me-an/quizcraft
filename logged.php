@@ -1,7 +1,12 @@
 <?php
 include("conn.php");
 session_start();
-if (empty($_SESSION['email'])) {
+
+$sql = "SELECT Count(*) as total_users FROM users";
+$table = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($table);
+$userCount = $row["total_users"] ?? 100;
+if (empty($_SESSION['username'])) {
     header("Location:login.php");
     exit();
 }
@@ -12,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $desc =  mysqli_real_escape_string($conn, $_POST['desc']);
     $share_code = strtoupper(bin2hex(random_bytes(3)));
 
-    $email = $_SESSION['email'] ?? '';
-    $table = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+    $username = $_SESSION['username'] ?? '';
+    $table = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
     $array = mysqli_fetch_assoc($table);
     $user_id = $array['user_id'] ?? '';
 
@@ -128,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <section class="heading">
             <h1>Design Smarter <span>Quizzes</span> Fast</h1>
-            <p>QuizCraft is the <span id="changetext">easiest</span> quiz maker</p>
+            <p>QuizCraft is <span id="changeText"></span> quiz maker</p>
         </section>
         <div class="quizboxes" id="quizboxes">
             <div class="generate-container">
@@ -136,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="quizBox active" id="quizBox1">
                         <h2>Generate Quiz</h2>
                         <span id="emptyError1"></span>
-                        <input type="text" name="title" id = "name" placeholder="Quiz title">
+                        <input type="text" name="title" id="name" placeholder="Quiz title">
                         <textarea name="desc" id="desc" placeholder="Quiz Description" rows="5"></textarea>
                         <div class="buttons">
                             <button type="button" onclick="nextBox(1)">Next</button>
@@ -165,8 +170,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>1</h2>
                     <div id="card_1">
                         <span>Add Quiz Title</span>
-                        To start creating your quiz, first log in to the portal. 
-                        After logging in, add an appropriate title and description for the quiz, 
+                        To start creating your quiz, first log in to the portal.
+                        After logging in, add an appropriate title and description for the quiz,
                         then click the Next button at the bottom.
                     </div>
                 </div>
@@ -174,8 +179,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>2</h2>
                     <div id="card_2">
                         <span>Add questions</span>
-                        Add the number of questions you want to create, then click the Next button. 
-                        This creates the question skeleton. Now you can add detailed question text, 
+                        Add the number of questions you want to create, then click the Next button.
+                        This creates the question skeleton. Now you can add detailed question text,
                         options and the correct option, after click the Generate button to continue.. (maximum of 50 questions).
                     </div>
                 </div>
@@ -183,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>3</h2>
                     <div id="card_3">
                         <span>Share quiz</span>
-                        After the quiz is created, a unique share code and a preview are generated. 
+                        After the quiz is created, a unique share code and a preview are generated.
                         The share code is provided to students to attend the created quiz.
                     </div>
                 </div>
@@ -198,7 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="company">
                 <h2>QuizCraft</h2>
                 <p>Quizcraft is a free and open source website provides
-                    Unlimited quiz Creation, Sharing and Join. Created for students 
+                    Unlimited quiz Creation, Sharing and Join. Created for students
                     and teachers to make online exams simple and fast.
                 </p>
             </div>
@@ -227,9 +232,81 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>&copy; 2026 Quizcraft, All Rights Reserved. | Made with in India</p>
     </footer>
     <script>
+        const userCount = <?php echo $userCount; ?>;
 
+        function nextBox(quizBox) {
+            document.getElementById("emptyError1").innerText = "";
+            document.getElementById("emptyError2").innerText = "";
+            quizName = document.getElementById("name").value.trim();
+            quizDesc = document.getElementById("desc").value.trim();
+            if (quizBox == 1) {
+                if ((quizName != "" && quizName != null) && (quizDesc != "" && quizDesc != null)) {
+                    document.getElementById("quizBox" + quizBox).classList.remove("active");
+                    document.getElementById("quizBox" + (quizBox + 1)).classList.add("active");
+                } else {
+                    document.getElementById("emptyError1").innerText = "empty input field";
+                }
+            } else if (quizBox == 2) {
+                num = document.getElementById("numQues").value.trim();
+                if (num != null && num != "") {
+                    if (isNaN(num)) {
+                        document.getElementById("emptyError2").innerText = "not a number";
+                    } else {
+                        document.getElementById("quizBox" + quizBox).classList.remove("active");
+                        document.getElementById("quizBox" + (quizBox + 1)).classList.add("active");
+
+                        container = document.getElementById("quizBox3");
+                        if (num <= 50) {
+                            console.log("hi");
+                            container.innerHTML = '';
+                            for (let i = 1; i <= num; i++) {
+                                container.innerHTML += `
+                        <h3>Question ${i}</h3>
+                        <textarea name="question_text[${i}]" placeholder="Question ${i}" required></textarea>
+                        <input type="text" name="option_a[${i}]" placeholder="Option A" required>
+                        <input type="text" name="option_b[${i}]" placeholder="Option B" required>
+                        <input type="text" name="option_c[${i}]" placeholder="Option C" required>
+                        <input type="text" name="option_d[${i}]" placeholder="Option D" required>
+                        Correct Option (A/B/C/D):
+                        <input type="text" name="correct_option[${i}]" maxlength="1" required>
+                        `;
+                            }
+                            container.innerHTML += "<div class='buttons'><button type='button' onclick='prevBox(3)'>Previous</button><button type='submit'>Generate</button></div>"
+                        } else {
+                            alert('you can create upto 50 quizzes');
+                        }
+                    }
+                } else {
+                    document.getElementById("emptyError2").innerText = "empty input field";
+                }
+            }
+        }
+
+        function prevBox(quizBox) {
+            document.getElementById("quizBox" + quizBox).classList.remove("active");
+            document.getElementById("quizBox" + (quizBox - 1)).classList.add("active");
+        }
+
+        function checkValid() {
+            let num = document.getElementById("numQues").value.trim();
+            let str = "ABCD";
+            let submitFlag = true;
+
+            for (let i = 1; i <= num; i++) {
+                let val = document.getElementsByName('correct_option[' + i + ']')[0].value.trim();
+                if (!str.includes(val) || val == '') {
+                    alert('Please enter a valid correct option (A, B, C, or D) for question ' + i);
+                    submitFlag = false;
+                    break;
+                }
+            }
+            if (num == 0) {
+                alert("No questions Added");
+                submitFlag = false;
+            }
+            return submitFlag;
+        }
     </script>
-    <script src="script.js"></script>
     <script src="scriptHome.js"></script>
 </body>
 

@@ -1,5 +1,5 @@
 <?php
-include("conn.php");
+include("../config/conn.php");
 session_start();
 $error = '';
 
@@ -30,12 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    
     <head>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
-    <link rel="stylesheet" href="style/RegisLogin.css">
+    <link rel="stylesheet" href="../assets/css/RegisLogin.css">
 </head>
 
 <body>

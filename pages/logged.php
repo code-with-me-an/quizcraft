@@ -1,5 +1,5 @@
 <?php
-include("conn.php");
+include("../config/conn.php");
 session_start();
 
 $sql = "SELECT Count(*) as total_users FROM users";
@@ -87,17 +87,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="style/home.css" rel="stylesheet">
+    <link href="../assets/css/home.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <nav>
             <div class="logo">
-                <a href="index.php"><img src="photo/logo.png" alt="Logo"></a>
+                <a href="index.php"><img src="../assets/images/logo.png" alt="Logo"></a>
             </div>
             <div class="profile">
-                <a href="profile.php"><img src="photo/profile.png" alt="profile" width="20"></a>
+                <a href="profile.php"><img src="../assets/images/profile.png" alt="profile" width="20"></a>
                 <div class="menu_bar" id="menu_bar">
                     <svg class="svg_menu" fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -307,7 +307,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             return submitFlag;
         }
     </script>
-    <script src="scriptHome.js"></script>
+    <script src="../assets/js/scriptHome.js"></script>
 </body>
 
 </html>

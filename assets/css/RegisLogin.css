@@ -69,6 +69,10 @@ body {
     margin: 10px;
 }
 
+.form-box input:focus {
+    outline: 1.7px solid var(--light-border);
+}
+
 .form-box button {
     width: 50%;
     padding: 12px;

@@ -154,6 +154,9 @@ h3 {
     border-radius: 6px;
     font-size: 16px;
 }
+.share-container input:focus {
+    outline: 1.7px solid var(--light-border);
+}
 
 .share-container button {
     width: 30%;
@@ -252,6 +255,10 @@ h3 {
     background: #fefefe;
     border-radius: 6px;
     font-size: 16px;
+}
+
+.search-container input:focus {
+    outline: 1.7px solid var(--light-border);
 }
 
 .search-container button {

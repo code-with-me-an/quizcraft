@@ -1,5 +1,5 @@
 <?php
-include("conn.php");
+include("../config/conn.php");
 $error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register page</title>
-    <link rel="stylesheet" href="style/RegisLogin.css">
+    <link rel="stylesheet" href="../assets/css/RegisLogin.css">
 </head>
 
 <body>

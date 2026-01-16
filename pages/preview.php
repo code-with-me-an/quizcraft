@@ -1,5 +1,5 @@
 <?php
-include("conn.php");
+include("../config/conn.php");
 if (!empty($_POST['preview'])) {
     $share_code = $_POST['preview'];
     $sql = "SELECT * FROM quizzes WHERE share_code = '$share_code'";
@@ -48,7 +48,7 @@ if (!empty($_POST['preview'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preview page</title>
-    <link rel="stylesheet" href="style/quiz.css">
+    <link rel="stylesheet" href="../assets/css/quiz.css">
 </head>
 
 <body>

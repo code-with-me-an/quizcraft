@@ -1,5 +1,5 @@
 <?php
-include("conn.php");
+include("../config/conn.php");
 session_start();
 if (!isset($_SESSION['username'])) {
     header("Location:login.php");
@@ -85,7 +85,7 @@ if (isset($_REQUEST['logout'])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>User Profile</title>
-    <link rel="stylesheet" href="style/profile.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 
 <body>
@@ -123,7 +123,7 @@ if (isset($_REQUEST['logout'])) {
     <div class="container">
         <div class="profile">
             <div class="profile-icon">
-                <img src="photo/profile.png" alt="profile" width="20">
+                <img src="../assets/images/profile.png" alt="profile" width="20">
             </div>
             <div class="name">
                 <h2><?php echo $name; ?></h2>
@@ -217,18 +217,18 @@ if (isset($_REQUEST['logout'])) {
             flag = false;
             let code = document.getElementById("shareCode").value.trim();
             const link = document.createElement("a");
-            let url = "localhost/quizcraft/joinQuiz.php?code=" + code;
+            let url = "localhost/quizcraft/pages/joinQuiz.php?code=" + code;
             link.href = "http://" + url;
             link.textContent = url;
             link.target = "_blank";
             document.getElementById("link-container").appendChild(link);
-            document.getElementById("link-container").innerHTML += "<div><button onclick='shareQuiz()'><img src='photo/share.svg' height='40' ><span>Share</span></button><button onclick='copyLink()'><img src='photo/link.svg' height='40' ><span>Copy</span></button></div>";
+            document.getElementById("link-container").innerHTML += "<div><button onclick='shareQuiz()'><img src='assets/images/share.svg' height='40' ><span>Share</span></button><button onclick='copyLink()'><img src='assets/images/link.svg' height='40' ><span>Copy</span></button></div>";
             return false;
         }
 
         function shareQuiz() {
             let code = document.getElementById("shareCode").value.trim();
-            let link = "http://localhost/quizcraft/joinQuiz.php?code=" + code;
+            let link = "http://localhost/quizcraft/pages/joinQuiz.php?code=" + code;
             if (navigator.share) {
                 navigator.share({
                     title: "Check this out!",
@@ -239,7 +239,7 @@ if (isset($_REQUEST['logout'])) {
         }
         function copyLink() {
             let code = document.getElementById("shareCode").value.trim();
-            let link = "http://localhost/quizcraft/joinQuiz.php?code=" + code;
+            let link = "http://localhost/quizcraft/pages/joinQuiz.php?code=" + code;
             navigator.clipboard.writeText(link);
         }
     </script>

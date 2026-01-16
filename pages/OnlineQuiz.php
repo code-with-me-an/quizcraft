@@ -1,5 +1,5 @@
 <?php
-include('conn.php');
+include('../config/conn.php');
 session_start();
 $title = $description = '';
 $error = '';
@@ -108,7 +108,7 @@ if (!empty($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Page</title>
-    <link rel="stylesheet" href="style/quiz.css">
+    <link rel="stylesheet" href="../assets/css/quiz.css">
     <style>
         
 

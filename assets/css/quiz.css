@@ -68,6 +68,10 @@ body {
     margin-bottom: 20px;
 }
 
+.join-container .quizBox input:focus {
+    outline: 1.7px solid var(--light-border);
+}
+
 .join-container .quizBox button {
     width: 100px;
     padding: 12px;

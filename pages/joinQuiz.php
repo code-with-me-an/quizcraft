@@ -1,5 +1,5 @@
 <?php
-include("conn.php");
+include("../config/conn.php");
 session_start();
 $error = '';
 $ShareCode = $_GET["code"] ?? '';
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join quiz page</title>
-    <link rel="stylesheet" href="style/quiz.css">
+    <link rel="stylesheet" href="../assets/css/quiz.css">
     <style>
 
     </style>

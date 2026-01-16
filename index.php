@@ -1,5 +1,5 @@
 <?php
-include("conn.php");
+include("config/conn.php");
 session_start();
 $error = '';
 
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['share_code'] = $link;
                         $_SESSION['examinee'] = $examinee;
                         echo "<script>
-                            window.open('OnlineQuiz.php','_blank');
+                            window.open('pages/OnlineQuiz.php','_blank');
                         </script>";
                     }
                 }
@@ -70,17 +70,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="style/home.css" rel="stylesheet">
+    <link href="assets/css/home.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <nav>
             <div class="logo">
-                <a href="index.php"><img src="photo/logo.png" alt="Logo"></a>
+                <a href="index.php"><img src="assets/images/logo.png" alt="Logo"></a>
             </div>
             <div class="profile">
-                <a href="login.php"><img src="photo/profile.png" alt="profile" width="20"></a>
+                <a href="pages/login.php"><img src="assets/images/profile.png" alt="profile" width="20"></a>
                 <div class="menu_bar" id="menu_bar">
                     <svg class="svg_menu" fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -93,13 +93,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="dropdown" id="dropdown">
                 <div class="dropdown_list">
-                    <a href="login.php">Login/SignUp</a>
+                    <a href="pages/login.php">Login/SignUp</a>
                 </div>
                 <div class="dropdown_list">
-                    <a href="login.php">Create Quiz</a>
+                    <a href="pages/login.php">Create Quiz</a>
                 </div>
                 <div class="dropdown_list">
-                    <a href="joinQuiz.php">Join Quiz</a>
+                    <a href="pages/joinQuiz.php">Join Quiz</a>
                 </div>
                 <div class="dropdown_list">
                     <a href="#help">Help</a>
@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </section>
         <div class="quizboxes">
             <div class="createBox">
-                <div class="createButton" onclick="loginPage('login.php')">
+                <div class="createButton" onclick="loginPage('pages/login.php')">
                     <span>
                         Create Quiz
                     </span><svg class="arrow" fill="#000000" viewBox="-3.2 -3.2 38.40 38.40" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </svg>
                 </div>
                 <div class="clickArrow">
-                    <img src="photo/arrow1.svg" alt="click arrow">
+                    <img src="assets/images/arrow1.svg" alt="click arrow">
                 </div>
             </div>
             <div class="join-container">
@@ -229,7 +229,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     </script>
-    <script src="scriptHome.js"></script>
+    <script src="assets/js/scriptHome.js"></script>
 </body>
 
 </html>

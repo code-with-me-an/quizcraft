@@ -7,13 +7,18 @@ $dbname = "quizcraft";
 $conn = mysqli_connect($servername,$username,$password);
 if(!$conn){
     die("connection error". mysqli_connect_error());
+}else{
+    echo "connected successfully<br>";
 }
 
 
 $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
 if(!mysqli_query($conn,$sql)){
     die("error".mysqli_connect_error());
+}else{
+    echo "database creaed successfully<br>";
 }
+
 
 mysqli_close($conn);
 
@@ -21,6 +26,8 @@ $conn = mysqli_connect($servername,$username,$password,$dbname);
 
 if(!$conn){
     die("connection error". mysqli_connect_error());
+}else{
+    echo "database connected successfully<br>";
 }
 
 $sql = 'CREATE TABLE IF NOT EXISTS users(
@@ -32,6 +39,8 @@ $sql = 'CREATE TABLE IF NOT EXISTS users(
 
 if(!mysqli_query($conn,$sql)){
     die("error".mysqli_error($conn));
+}else{
+    echo "ueser table creaed successfully<br>";
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS quizzes (
@@ -46,7 +55,11 @@ $sql = "CREATE TABLE IF NOT EXISTS quizzes (
 )";
 if(!mysqli_query($conn,$sql)){
     die("error".mysqli_error($conn));
+}else{
+    echo "quizzes table creaed successfully<br>";
 }
+
+
 $sql = "CREATE TABLE IF NOT EXISTS questions (
     question_id INT AUTO_INCREMENT PRIMARY KEY,
     quiz_id INT,
@@ -60,7 +73,10 @@ $sql = "CREATE TABLE IF NOT EXISTS questions (
 )";
 if(!mysqli_query($conn,$sql)){
     die("error".mysqli_error($conn));
+}else{
+    echo "questions table creaed successfully<br>";
 }
+
 $sql = "CREATE TABLE IF NOT EXISTS answers (
     answer_id INT AUTO_INCREMENT PRIMARY KEY,
     examinee VARCHAR(200) NOT NULL,
@@ -72,7 +88,10 @@ $sql = "CREATE TABLE IF NOT EXISTS answers (
 )";
 if(!mysqli_query($conn,$sql)){
     die("error".mysqli_error($conn));
+}else{
+    echo "answers table creaed successfully<br>";
 }
+
 $sql = "CREATE TABLE IF NOT EXISTS results (
     result_id INT AUTO_INCREMENT PRIMARY KEY,
     examinee VARCHAR(200) NOT NULL,
@@ -84,7 +103,10 @@ $sql = "CREATE TABLE IF NOT EXISTS results (
 )";
 if(!mysqli_query($conn,$sql)){
     die("error".mysqli_error($conn));
+}else{
+    echo "result table creaed successfully<br>";
 }
+
 
 
 ?>

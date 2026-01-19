@@ -1,4 +1,4 @@
-# QuizCraft   ![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+# QuizCraft   [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md) ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
 **Quizcraft** is a web-based application designed for Students and Teachers to make **online exams** simple and fast. It built with PHP and MySQL that allows Teachers to create, manage, take
 online quizzes and share to students with a simple interface to attend.

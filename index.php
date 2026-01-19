@@ -211,7 +211,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Follow Us</h2>
             <div class="icons">
                 <a href="https://github.com/code-with-me-an" target="_blank"><i class="fa-brands fa-square-github"></i></a>
-                <a href="https://www.instagram.com/v1be_code?" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-square-instagram"></i></a>
                 <a href=""><i class="fa-brands fa-x-twitter"></i></a>
             </div>
         </div>

@@ -31,6 +31,26 @@ To work on Quizcraft, you need to set it up on your local machine using XAMPP, W
 
 ---
 
+## Database Setup
+
+Follow these steps to set up the database:
+1. Navigate to the `config/` folder
+2. Locate the file named `database.example.php`
+3. Rename it to `database.php`
+4. Open `database.php` and enter your local database credentials:
+   - Host: `localhost` (typically)
+   - Username: `root` (typically for XAMPP)
+   - Password: (empty by default for XAMPP)
+   - Database: `quizcraft`
+5. Open database.php file in your browser 
+   `http://localhost/quizcraft/config/database.php`
+6. open phpmyadmin in your browser
+   `http://localhost/phpmyadmin/index.php`
+7. Verify the database & tables are created successfully
+
+
+---
+
 ## Configuration
 
 To configure the application:
@@ -38,28 +58,16 @@ To configure the application:
 1. Navigate to the `config/` folder
 2. Locate the file named `conn.example.php`
 3. Rename it to `conn.php`
-4. Open `conn.php` and enter your local database credentials:
+4. Open `conn.php` update your local database credentials:
    - Host: `localhost` (typically)
    - Username: `root` (typically for XAMPP)
    - Password: (empty by default for XAMPP)
    - Database: `quizcraft`
 
-**⚠️ Important:** `conn.php` is ignored by Git to keep your passwords safe. Never commit your real credentials!
+**⚠️ Important:** `conn.php` and `database.php`is ignored by Git to keep your passwords safe. Never commit your real credentials!
 
 ---
 
-## Database Setup
-
-Follow these steps to set up the database:
-
-1. Open database.php file in your browser 
-   `http://localhost/quizcraft/config/database.php`
-2. open phpmyadmin in your browser
-   `http://localhost/phpmyadmin/index.php`
-3. Verify the database & tables are created successfully
-
-
----
 
 ## The Workflow
 

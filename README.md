@@ -70,10 +70,10 @@ quizcraft/
    cd quizcraft
    ```
 2. **Set up the database**
-   - Update database credentials in `config/database.php`
+   - Update database credentials in `config/database.example.php`
 
 3. **Configure the connection**
-   - Update `config/conn.php` with your database connection details
+   - Update `config/conn.example.php` with your database connection details
 
 4. **Place project in web server**
    - Copy the entire folder to your web server's root directory (e.g., `htdocs/` for XAMPP, `www/` for AMPPS)
@@ -109,7 +109,8 @@ $database = 'quizcraft_db';
 6. **Generate link & check Result**
    - copy the share code to generate sharing link
    - copy the share code to check submitted results
-
+> for detailed explanation
+[ CONTRIBUTING](./CONTRIBUTING.md)
 ## File Descriptions
 
 | File | Purpose |
@@ -139,13 +140,13 @@ Steps:
 3. Commit changes
 4. Open a Pull Request
 
-Read more in `CONTRIBUTING.md`.
+Read more in [`CONTRIBUTING.md`](./CONTRIBUTING.md)
 
 ---
 ## License
 
-This project is open source and available under the MIT License.
+This project is open source and available under the [`MIT License`](./LICENSE)
 
 ## Support
 
-For issues or questions, please open an issue in the repository.
+For issues or questions, please open an issue in the repository [`issues`](https://github.com/code-with-me-an/quizcraft/issues) [discussions](https://github.com/code-with-me-an/quizcraft/discussions)

@@ -5,7 +5,7 @@ $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
-    if(preg_match('/^[a-zA-Z0-9_]{5,15}$/', $username)){
+    if (preg_match('/^[a-zA-Z0-9_]{5,15}$/', $username)) {
         $password = mysqli_real_escape_string($conn, $_POST['password']);
         $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
         if (mysqli_num_rows($result) > 0) {
@@ -20,20 +20,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $error = 'Incorrect username or password';
             }
-        }else{
-             $error = 'Incorrect username or password';
+        } else {
+            $error = 'Incorrect username or password';
         }
-    }else{
+    } else {
         $error = 'Incorrect username Formate';
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+
     <link rel="stylesheet" href="../assets/css/RegisLogin.css">
 </head>
 

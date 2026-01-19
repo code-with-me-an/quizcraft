@@ -1,3 +1,2 @@
 # Ignore database configuration (Contains passwords!)
 config/conn.php
-config/database.php

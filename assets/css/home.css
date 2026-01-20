@@ -140,20 +140,34 @@ nav {
     position: relative;
 
 }
- 
+
 .heading #changeText::after {
-  content: "|";
-  opacity: 1;
-  animation: blink 1s infinite;
-  color: var(--font-color);
+    content: "|";
+    opacity: 1;
+    animation: blink 1s infinite;
+    color: var(--font-color);
 }
 
 @keyframes blink {
-  0%{ opacity: 1; }
-  25%{ opacity: 0; }
-  50% { opacity: 0; }
-  75% { opacity: 1; }
-  100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* quizbox */
@@ -590,7 +604,7 @@ p {
 
 footer {
     width: 100%;
-    height: 350px;
+    height: 400px;
     background-color: var(--font-color);
     display: flex;
     flex-direction: column;
@@ -621,7 +635,7 @@ footer {
     width: 80%;
     margin-left: 20px;
     font-size: 17px;
-     font-weight: 300;
+    font-weight: 300;
 }
 
 .footer .quicklink {
@@ -696,10 +710,24 @@ footer .followLinks .icons i {
     font-size: 30px;
 }
 
-footer p {
-    color: var(--font-black);
+footer .last-footer {
     text-align: center;
-    font-size: 17px;
+    padding-top: 5px;
+}
+
+footer .last-footer p {
+    margin: 10px 0px;
+    color: var(--font-black);
+}
+
+footer .last-footer p a {
+    color: #c06000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer .last-footer p a:hover {
+    text-decoration: underline;
 }
 
 
@@ -784,21 +812,23 @@ footer p {
         top: -3px;
     }
 
-    .generate-container{
+    .generate-container {
         width: 100%;
     }
+
     .generate-container .quizBox {
         min-width: 330px;
     }
 
-    .join-container{
+    .join-container {
         width: 100%;
     }
-   
+
     .join-container form .quizBox {
         min-width: 330px;
         background-color: #e3e3e3;
     }
+
     .howtomakeBox {
         height: 750px;
         margin: 100px 0px 50px 0px;
@@ -871,7 +901,7 @@ footer p {
     }
 
     footer {
-        height:550px;
+        height: 600px;
         margin-top: 50px;
     }
 
@@ -946,7 +976,7 @@ footer p {
     }
 
     footer .followLinks .icons i {
-        margin: 15px;
+        margin: 10px;
         font-size: 27px;
     }
 
@@ -954,5 +984,14 @@ footer p {
         font-size: 13px;
         padding: 10px 0px 3px 0px;
 
+    }
+
+    footer .last-footer {
+        padding-top: 0px;
+    }
+
+    footer .last-footer p {
+        padding: 0px 0px;
+        margin-bottom: 10px;
     }
 }

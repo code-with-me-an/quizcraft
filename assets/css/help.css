@@ -1,0 +1,226 @@
+:root {
+    --white-color: #f2f2f2;
+    --blue-color: #1870D5;
+    --orange-color: #DF7000;
+    --font-color: #3b3b3b;
+    --border-color: #5151514c;
+    --font-white: #c1c1c1;
+    --font-black: #707070;
+    --light-border: #c1c1c1;
+    --background-color: #dfdfdf;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', 'Open Sans', Arial, Helvetica, sans-serif;
+    background-color: var(--white-color);
+    color: var(--font-color);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--blue-color) 0%, var(--orange-color) 100%);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.back-button {
+    background-color: var(--blue-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: var(--orange-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.help-section {
+    background-color: var(--white-color);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.help-section:hover {
+    border-color: var(--blue-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    background-color: var(--background-color);
+    border-bottom: 3px solid var(--blue-color);
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--font-color);
+    font-weight: 700;
+    margin: 0;
+}
+
+details {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+}
+
+details:last-child {
+    border-bottom: none;
+}
+
+summary {
+    background-color: var(--white-color);
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+summary:hover {
+    background-color: var(--background-color);
+}
+
+summary h3 {
+    color: var(--blue-color);
+    font-size: 1.1rem;
+    margin: 0;
+    flex: 1;
+    font-weight: 600;
+}
+
+
+
+.faq-content {
+    padding: 1.5rem;
+    background-color: var(--white-color);
+    color: var(--font-black);
+    line-height: 1.8;
+}
+
+.faq-content p {
+    margin-bottom: 1rem;
+}
+
+.faq-content ul,
+.faq-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-content li {
+    margin-bottom: 0.5rem;
+}
+
+.faq-content a {
+    color: var(--blue-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.faq-content a:hover {
+    text-decoration: underline;
+}
+
+
+.highlight {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-left: 4px solid var(--orange-color);
+    margin: 2rem 0;
+    border-radius: 4px;
+    color: var(--font-color);
+}
+
+.highlight strong {
+    color: var(--blue-color);
+}
+
+footer {
+    background-color: var(--font-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    color: var(--font-white);
+}
+
+footer a {
+    color: var(--orange-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    summary {
+        padding: 1rem;
+    }
+
+    .faq-content {
+        padding: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+}

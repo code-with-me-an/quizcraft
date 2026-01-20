@@ -89,6 +89,7 @@ if (isset($_REQUEST['logout'])) {
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 
@@ -125,6 +126,7 @@ if (isset($_REQUEST['logout'])) {
 
     ?>
     <div class="container">
+        <button type="button" onclick="goBack()" class="back-button"><i class="fa-solid fa-angle-left"></i></button>
         <div class="profile">
             <div class="profile-icon">
                 <img src="../assets/images/profile.png" alt="profile" width="20">
@@ -245,6 +247,9 @@ if (isset($_REQUEST['logout'])) {
             let code = document.getElementById("shareCode").value.trim();
             let link = "http://localhost/quizcraft/pages/joinQuiz.php?code=" + code;
             navigator.clipboard.writeText(link);
+        }
+        function goBack() {
+            window.history.back();
         }
     </script>
 </body>

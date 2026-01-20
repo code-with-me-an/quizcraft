@@ -57,7 +57,7 @@ body {
     margin-bottom: 20px;
 }
 
-.form-box input {
+.form-box form > input {
     width: 100%;
     padding: 12px;
     background: var(--white-color);
@@ -68,12 +68,68 @@ body {
     color: var(--font-black);
     margin: 10px;
 }
+.form-box #password{
+    position: relative;
+    width: 100%;
+    background: var(--white-color);
+    padding: 12px;
+    margin: 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    cursor: text;
+}
+.form-box #password input{
+    flex: 1;
+    background: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: var(--font-black);
+}
+
+.form-box #password #viewPassword{
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.form-box #password #viewPassword i{
+    color: var(--font-black);
+    font-size: medium;
+    cursor: pointer;
+}
+
+/* password icon active or inactive  */
+
+#viewPassword .eye{
+    display: none;
+}
+#viewPassword .eye-slash{
+    display: inline;
+}
+
+#viewPassword.active .eye{
+    display: inline;
+}
+
+#viewPassword.active .eye-slash{
+    display: none;
+}   
+
 
 .form-box input:focus {
     outline: 1.7px solid var(--light-border);
 }
 
-.form-box button {
+.form-box #password:focus-within{
+    outline: 1.7px solid var(--light-border);
+}
+
+.form-box form > button {
     width: 50%;
     padding: 12px;
     background-color: var(--blue-color);

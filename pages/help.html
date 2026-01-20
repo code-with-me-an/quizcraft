@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizCraft Help & FAQ</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/help.css">
+</head>
+
+<body>
+    <header>
+        <h1>QuizCraft Help & FAQ</h1>
+        <p>Find answers to common questions about QuizCraft</p>
+    </header>
+
+    <div class="container">
+
+        <button onclick="goBack()" class="back-button"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="help-section">
+            <h2 class="section-title">Getting Started</h2>
+            <details>
+                <summary>
+                    <h3>What is QuizCraft?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>QuizCraft is a web-based application designed for students and teachers to make online exams
+                        simple and fast. It's built with PHP and MySQL, allowing teachers to create, manage, and share
+                        online quizzes with students through a simple interface. Students can take quizzes
+                        directly from their browser.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>Is QuizCraft free to use?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Yes! QuizCraft is <a href="https://github.com/code-with-me-an/quizcraft">open-source</a> software. It's distributed under the <a href="https://github.com/code-with-me-an/quizcraft/blob/main/LICENSE">MIT license</a>, which means 
+                        QuizCraft is free for anyone to use, for any reason. Whether you're an individual teacher,
+                        a school administrator, or running a large educational platform,you can use QuizCraft without any cost.
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>How do I get started with QuizCraft?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p><strong>Step 1:</strong> Register for a new account by clicking "Register" on the login page and
+                        filling in your details.</p>
+                    <p><strong>Step 2:</strong> Log in with your credentials.</p>
+                    <p><strong>Step 3:</strong>Now teachers can create a new quiz and share with your students using the quiz code.</p>
+                    <p><strong>Step 4:</strong>No account for students to joining the shared quizzes.</p>
+                    <p>For detailed setup instructions, refer to the <a href="https://github.com/code-with-me-an/quizcraft/blob/main/README.md">README.md</a> file in the project repository.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Account & Security Section -->
+        <div class="help-section">
+            <h2 class="section-title">Account & Security</h2>
+
+            <details>
+                <summary>
+                    <h3>Is QuizCraft safe to use?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Yes! QuizCraft is an open-source project, which means the code is available for anyone to review
+                        and improve. All changes to the code are reviewed by contributors, ensuring no malicious code is
+                        added. QuizCraft uses industry-standard security practices including:</p>
+                    <ul>
+                        <li>Password hashing with bcrypt encryption</li>
+                        <li>SQL injection prevention through input sanitization</li>
+                        <li>Secure session management</li>
+                        <li>HTTPS support for encrypted communication</li>
+                    </ul>
+                    <p>As long as you can refer QuizCraft build in code from the official <a href="https://github.com/code-with-me-an/quizcraft">repository </a>.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>How do I reset my password?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>To reset your password:</p>
+                    <p><strong>Step 1:</strong> Go to the login page and click "Forgot Password" (if available).</p>
+                    <p><strong>Step 2:</strong> Enter your username or email address.</p>
+                    <p><strong>Step 3:</strong> Follow the instructions sent to your registered email.</p>
+                    <p><strong>Step 4:</strong> Create a new strong password (minimum 8 characters).</p>
+                    <p>If you don't see a password recovery option, contact your system administrator.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>What makes a strong password?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>A strong password for QuizCraft should have:</p>
+                    <ul>
+                        <li><strong>At least 8 characters</strong> - Longer passwords are harder to crack</li>
+                        <li><strong>Mix of characters</strong> - Include uppercase, lowercase, numbers, and special
+                            symbols</li>
+                        <li><strong>No personal information</strong> - Avoid using your name, birthday, or username</li>
+                        <li><strong>Unique</strong> - Don't reuse passwords from other accounts</li>
+                    </ul>
+                    <p><strong>Example:</strong> QuizCraft#2024Secure</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- For Teachers Section -->
+        <div class="help-section">
+            <h2 class="section-title">For Teachers</h2>
+
+            <details>
+                <summary>
+                    <h3>How do I create a new quiz?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p><strong>Step 1:</strong> Log in to your account.</p>
+                    <p><strong>Step 2:</strong> Click "Create Quiz" from the dashboard.</p>
+                    <p><strong>Step 3:</strong> Fill in the quiz details:</p>
+                    <ul>
+                        <li>Quiz Title</li>
+                        <li>Description</li>
+                        <li>Time limit (if available)</li>
+                        <li>Passing score(if available)</li>
+                    </ul>
+                    <p><strong>Step 4:</strong> Add questions by clicking "Add Question".</p>
+                    <p><strong>Step 5:</strong> Review your quiz and click "Publish" to make it available.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>What types of questions can I add?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>QuizCraft supports various question types: <strong>(developing stage)</strong></p>
+                    <ul>
+                        <li><strong>Multiple Choice</strong> - Students select one correct answer from options</li>
+                        <li><strong>True/False</strong> - Quick assessment questions</li>
+                        <li><strong>Short Answer</strong> - Students type short text responses</li>
+                        <li><strong>Fill in the Blank</strong> - Students complete sentences</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>How do I share a quiz with students?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>After publishing your quiz:</p>
+                    <p><strong>Step 1:</strong> Go to your quiz dashboard in profile.</p>
+                    <p><strong>Step 2:</strong> Copy the unique quiz code.</p>
+                    <p><strong>Step 3:</strong> Generate share link using the unique code.</p>
+                    <p><strong>Step 4:</strong> Share the link or code with your students via email, messaging, or your learning
+                        management system.</p>
+                    <p><strong>Step 5:</strong> Students can join the quiz by clicking the link or entering the code on the "Join Quiz" page.
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>How do I view student responses and grades?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p><strong>Step 1:</strong> Log in to your account.</p>
+                    <p><strong>Step 2:</strong> Go to your quiz dashboard in profile.</p>
+                    <p><strong>Step 3:</strong> On the "View Results" field enter your unique code.</p>
+                    <p><strong>Step 4:</strong> You'll see a list of all students who took the quiz with their scores.
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>Can I edit a quiz after publishing it?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Yes, you can edit a quiz, but the changes will only affect new attempts: <strong>(developing stage)</strong></p>
+                    <p><strong>Important:</strong> If you edit questions, grading, or time limits after students have
+                        started the quiz, those changes won't apply to completed attempts. We recommend creating a new
+                        version if major changes are needed.</p>
+                    <p><strong>Minor edits</strong> (like fixing typos in descriptions) are safe to make anytime.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- For Students Section -->
+        <div class="help-section">
+            <h2 class="section-title">For Students</h2>
+
+            <details>
+                <summary>
+                    <h3>How do I join a quiz?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p><strong>Step 1:</strong> Click "Join Quiz" from the main menu.</p>
+                    <p><strong>Step 2:</strong> Enter the quiz code provided by your teacher and your name.</p>
+                    <p><strong>Step 3:</strong> Click "Join" to access the quiz.</p>
+                    <p><strong>Step 4:</strong> Click "Start Quiz" when you're ready to begin.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>What happens if I lose internet connection during a quiz?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>QuizCraft automatically saves your progress as you answer questions. If your connection drops: <strong>(developing stage)</strong></p>
+                    <ul>
+                        <li>Your answers are saved on the server</li>
+                        <li>When you reconnect, you can resume from where you left off</li>
+                        <li>You won't lose any work</li>
+                    </ul>
+                    <p><strong>Tip:</strong> Ensure you have a stable internet connection before taking important
+                        quizzes.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>Can I review my quiz after submitting it?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>No! After submitting your quiz, you cannot access it you can see the score of quiz after submitting</p>
+                    <p>Also you can submit a quiz one time with a name.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>Can I retake a quiz?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Whether you can retake a quiz depends on your teacher's settings: <strong>(developing stage)</strong></p>
+                    <ul>
+                        <li><strong>Single Attempt:</strong> You can take the quiz only once</li>
+                        <li><strong>Multiple Attempts:</strong> You can retake it (check your teacher's limit)</li>
+                        <li><strong>Best Score:</strong> If multiple attempts allowed, your best score counts</li>
+                    </ul>
+                    <p>Ask your teacher if you're unsure about the quiz policy.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>How long is my quiz available?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Quiz availability is set by your teacher and may include: <strong>(developing stage)</strong></p>
+                    <ul>
+                        <li><strong>Availability Window:</strong> Date and time when quiz opens and closes</li>
+                        <li><strong>Time Limit:</strong> How long you have to complete the quiz after starting</li>
+                        <li><strong>Access After Deadline:</strong> Whether you can view completed quizzes after the
+                            deadline</li>
+                    </ul>
+                    <p>Contact your teacher if you miss the deadline.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Technical Issues Section -->
+        <div class="help-section">
+            <h2 class="section-title">Technical Issues</h2>
+
+            <details>
+                <summary>
+                    <h3>QuizCraft is loading slowly. What should I do?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>If QuizCraft is slow:</p>
+                    <ul>
+                        <li><strong>Check your internet connection:</strong> Ensure you have a stable and fast
+                            connection</li>
+                        <li><strong>Clear browser cache:</strong> Delete cached files from your browser settings</li>
+                        <li><strong>Try a different browser:</strong> Chrome, Firefox, Safari, or Edge</li>
+                        <li><strong>Close other tabs:</strong> Reduce the number of open browser tabs</li>
+                        <li><strong>Disable browser extensions:</strong> Ad blockers or other extensions may slow the
+                            page</li>
+                        <li><strong>Try a different device:</strong> Test on another computer or phone</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>I'm getting a "Page Not Found" error. What does this mean?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>A "404 Page Not Found" error means the page you're trying to access doesn't exist. This could
+                        happen because:</p>
+                    <ul>
+                        <li>The quiz or resource has been deleted</li>
+                        <li>You entered an incorrect URL or quiz code</li>
+                        <li>The quiz link has expired</li>
+                        <li>You don't have permission to access that page</li>
+                    </ul>
+                    <p>Try logging in again and accessing the quiz from your dashboard.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>My browser shows a security warning. Is QuizCraft safe?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Security warnings can appear for several reasons:</p>
+                    <ul>
+                        <li><strong>HTTPS not configured:</strong> If your server doesn't have SSL/TLS certificates,
+                            browsers may warn you</li>
+                        <li><strong>Outdated certificates:</strong> Update your server's SSL certificate</li>
+                        <li><strong>Browser detection:</strong> Some browsers are extra cautious with local development
+                            environments</li>
+                    </ul>
+                    <p><strong>Solution:</strong> Ensure your QuizCraft installation uses HTTPS in production. For local
+                        testing, it's normal to see warnings.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>I've updated QuizCraft and nothing is working. What happened?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Updates should preserve your settings, but issues can occur if:</p>
+                    <ul>
+                        <li>Antivirus software interfered with the update</li>
+                        <li>Files weren't completely updated</li>
+                        <li>Database schema changed</li>
+                        <li>Configuration files were lost</li>
+                    </ul>
+                    <p><strong>Try these steps:</strong></p>
+                    <ol>
+                        <li>Clear your browser cache</li>
+                        <li>Check that all files were updated correctly</li>
+                        <li>Verify database connection settings</li>
+                        <li>Restart your web server</li>
+                        <li>Contact support if issues persist</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>What browsers are supported?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>QuizCraft works on all modern browsers:</p>
+                    <ul>
+                        <li><strong>Chrome</strong> - Latest version (Recommended)</li>
+                        <li><strong>Firefox</strong> - Latest version</li>
+                        <li><strong>Safari</strong> - Latest version</li>
+                        <li><strong>Edge</strong> - Latest version</li>
+                    </ul>
+                    <p><strong>Note:</strong> For best experience, keep your browser updated. Older versions may have
+                        compatibility issues.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Support & Contributing Section -->
+        <div class="help-section">
+            <h2 class="section-title">Support & Contributing</h2>
+
+            <details>
+                <summary>
+                    <h3>How can I get support?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>If you need help with QuizCraft:</p>
+                    <ul>
+                        <li><strong>Documentation:</strong> Check the <a href="https://github.com/code-with-me-an/quizcraft/blob/main/README.md">README</a> and documentation files</li>
+                        <li><strong>GitHub Issues:</strong> Search existing issues or create a new one</li>
+                        <li><strong>Discussion:</strong> Use our <a href="https://github.com/code-with-me-an/quizcraft/discussions">discussion</a> tab in github</li>
+                        <li><strong>Email Support:</strong> Contact the development team directly</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>How can I report a bug?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Found a bug? Here's how to report it:</p>
+                    <ol>
+                        <li><strong>Check if it's been reported:</strong> Search GitHub issues first</li>
+                        <li><strong>Provide details:</strong> Describe what went wrong and steps to reproduce</li>
+                        <li><strong>Include system info:</strong> Your browser, OS, and QuizCraft version</li>
+                        <li><strong>Add screenshots:</strong> Visual proof helps us understand better</li>
+                        <li><strong>Post on GitHub:</strong> Create a detailed issue on the GitHub repository</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>How can I contribute to QuizCraft?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>There are many ways to help:</p>
+                    <ul>
+                        <li><strong>Code:</strong> Submit pull requests with bug fixes or features</li>
+                        <li><strong>Documentation:</strong> Improve README and help files</li>
+                        <li><strong>Translations:</strong> Help translate QuizCraft into other languages</li>
+                        <li><strong>Testing:</strong> Report bugs and test new features</li>
+                        <li><strong>Design:</strong> Contribute UI/UX improvements</li>
+                    </ul>
+                    <p>Check the <a href="https://github.com/code-with-me-an/quizcraft/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> file for detailed guidelines.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>Is there a security policy?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>Yes! QuizCraft has a comprehensive security policy. If you discover a security vulnerability:</p>
+                    <ul>
+                        <li><strong>Don't post publicly:</strong> Keep it confidential</li>
+                        <li><strong>Email security team:</strong> Send details to the security contact</li>
+                        <li><strong>Include details:</strong> Describe the vulnerability and impact</li>
+                        <li><strong>Be patient:</strong> Allow time for us to develop and test fixes</li>
+                    </ul>
+                    <p>See <a href="https://github.com/code-with-me-an/quizcraft/blob/main/SECURITY.md">SECURITY.md</a> for the full security policy and reporting procedures.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <h3>What license is QuizCraft under?</h3>
+                </summary>
+                <div class="faq-content">
+                    <p>QuizCraft is distributed under the <strong>MIT License</strong>. This means:</p>
+                    <ul>
+                        <li>You can use it for any purpose (commercial or personal)</li>
+                        <li>You can modify and distribute it</li>
+                        <li>You must include the license and copyright notice</li>
+                        <li>It comes "as-is" without warranty</li>
+                    </ul>
+                    <p>See the <a href="https://github.com/code-with-me-an/quizcraft/blob/main/LICENSE">LICENSE</a> file for complete terms.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="highlight">
+            <strong>Still need help?</strong> Visit our GitHub repository at github.com/code-with-me-an/quizcraft or
+            contact the QuizCraft team for more assistance.
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QuizCraft. All rights reserved.</p>
+        <p>QuizCraft is an open-source project distributed under the MIT License.</p>
+        <p><a href="https://github.com/code-with-me-an/quizcraft">Visit our GitHub Repository</a></p>
+    </footer>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

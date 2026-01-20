@@ -22,6 +22,7 @@ body {
 }
 
 .container {
+    position: relative;
     max-width: 90vw;
     margin: 20px auto;
     background: var(--white-color);
@@ -30,23 +31,43 @@ body {
     box-shadow: 0 0 10px var(--font-white);
     padding: 20px;
 }
+.back-button {
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    color: var(--font-black );
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+
+}
+.back-button i{
+    font-size: 35px;
+}
+
+.back-button:hover {
+    color: var(--blue-color);
+}
 
 .profile {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 15px;
     position: relative;
 }
 
 .profile-icon {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background: var(--light-border);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 15px;
+    margin-left: 35px;
 }
 
 .profile-icon img {

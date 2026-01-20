@@ -108,13 +108,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="pages/joinQuiz.php">Join Quiz</a>
                 </div>
                 <div class="dropdown_list">
-                    <a href="#help">Help</a>
+                    <a href="./pages/help.html">Help</a>
                 </div>
                 <div class="dropdown_list">
                     <a href="#contact">Contact us</a>
-                </div>
-                <div class="dropdown_list">
-                    <a href="#">Privacy & Security</a>
                 </div>
             </div>
         </nav>
@@ -221,7 +218,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href=""><i class="fa-brands fa-x-twitter"></i></a>
             </div>
         </div>
-        <p>&copy; 2026 Quizcraft, All Rights Reserved. | Made with in India</p>
+        <div class="last-footer">
+            <p>&copy; 2026 Quizcraft, All Rights Reserved. | Made with in India</p>
+            <p><a href="https://github.com/code-with-me-an/quizcraft">Visit our GitHub Repository</a></p>
+        </div>  
     </footer>
     <script>
         const userCount = <?php echo $userCount; ?>;

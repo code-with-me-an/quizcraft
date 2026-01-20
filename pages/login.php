@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="../assets/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/RegisLogin.css">
 </head>
 
@@ -50,13 +51,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Login</h2>
                 <?php echo "<p class='error-message'>$error</p>"; ?>
                 <input type="username" name="username" placeholder="user_name" required>
-                <input type="password" name="password" placeholder="Password" required>
+                <label id="password" >
+                    <input type="password" name="password" id="pwd" placeholder="Password" required>
+                    <button id="viewPassword" type="button" onclick="view_password()">
+                        <i class="fa-regular fa-eye eye"></i>
+                        <i class="fa-regular fa-eye-slash eye-slash"></i>
+                    </button>
+                </label>
                 <button type="submit">Login</button>
                 <p>Don't have an account? <a href="register.php">Register</a></p>
             </form>
         </div>
     </div>
     <script>
+        function view_password(){
+            const pwd = document.getElementById("pwd");
+            const viewPassword = document.getElementById("viewPassword");
+            if(pwd.type === "password"){
+                pwd.type = "text";
+                viewPassword.classList.add("active");
+            }else{
+                pwd.type = "password";
+                viewPassword.classList.remove("active");
+            }
+        }
     </script>
 </body>
 

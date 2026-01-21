@@ -4,6 +4,9 @@
 online quizzes and share to students with a simple interface to attend.
 
 ---
+## 🎥 Demo Video
+
+https://github.com/user-attachments/assets/4a44382b-101d-47df-a9fe-8e2551500b81
 
 ## Features
 

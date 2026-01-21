@@ -85,10 +85,12 @@ if (isset($_REQUEST['logout'])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>User Profile</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
@@ -126,7 +128,10 @@ if (isset($_REQUEST['logout'])) {
 
     ?>
     <div class="container">
-        <button type="button" onclick="goBack()" class="back-button"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="button-div">
+            <button type="button" onclick="goBack()" class="back-button"><i class="fa-solid fa-angle-left"></i></button>
+            <button type="button" onclick="goForward()" class="forward-button"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
         <div class="profile">
             <div class="profile-icon">
                 <img src="../assets/images/profile.png" alt="profile" width="20">
@@ -177,7 +182,7 @@ if (isset($_REQUEST['logout'])) {
             </form>
         </div>
         <div class="link-container" id="link-container">
-            
+
         </div>
         <div class="search-container">
             <form action="profile.php" method="post">
@@ -217,9 +222,10 @@ if (isset($_REQUEST['logout'])) {
         </table>
     </div>
     <script>
-        flag=true;
+        flag = true;
+
         function linkGenerator() {
-            if(flag == false) return false;
+            if (flag == false) return false;
             flag = false;
             let code = document.getElementById("shareCode").value.trim();
             const link = document.createElement("a");
@@ -228,7 +234,7 @@ if (isset($_REQUEST['logout'])) {
             link.textContent = url;
             link.target = "_blank";
             document.getElementById("link-container").appendChild(link);
-            document.getElementById("link-container").innerHTML += "<div><button onclick='shareQuiz()'><img src='assets/images/share.svg' height='40' ><span>Share</span></button><button onclick='copyLink()'><img src='assets/images/link.svg' height='40' ><span>Copy</span></button></div>";
+            document.getElementById("link-container").innerHTML += "<div><button onclick='shareQuiz()'><img src='../assets/images/share.svg' height='40' ><span>Share</span></button><button onclick='copyLink()'><img src='../assets/images/link.svg' height='40' ><span>Copy</span></button></div>";
             return false;
         }
 
@@ -243,13 +249,19 @@ if (isset($_REQUEST['logout'])) {
                 });
             }
         }
+
         function copyLink() {
             let code = document.getElementById("shareCode").value.trim();
             let link = "http://localhost/quizcraft/pages/joinQuiz.php?code=" + code;
             navigator.clipboard.writeText(link);
         }
+
         function goBack() {
             window.history.back();
+        }
+
+        function goForward() {
+            window.history.forward();
         }
     </script>
 </body>

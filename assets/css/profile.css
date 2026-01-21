@@ -31,22 +31,27 @@ body {
     box-shadow: 0 0 10px var(--font-white);
     padding: 20px;
 }
-.back-button {
+.button-div {
     position: absolute;
-    left: 13px;
+    left: 10px;
     top: 13px;
+    z-index: 10;
+}
+.button-div button{
     color: var(--font-black );
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 10;
-
 }
-.back-button i{
-    font-size: 35px;
+.button-div .forward-button{
+    margin-left: 10px;
 }
 
-.back-button:hover {
+.button-div button i{
+    font-size: 33px;
+}
+
+.button-div button:hover {
     color: var(--blue-color);
 }
 
@@ -54,7 +59,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    margin-top: 15px;
+    margin-top: 35px;
     position: relative;
 }
 
@@ -67,7 +72,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-right: 15px;
-    margin-left: 35px;
+    margin-left: 30px;
 }
 
 .profile-icon img {
@@ -390,7 +395,7 @@ table #submitted_at {
         width: 80px;
         position: absolute;
         right: 0px;
-        top: 0px;
+        top: 20px;
     }
 
     .logout button {
@@ -405,6 +410,19 @@ table #submitted_at {
     }
     .link-container button{
         width: 50px;
+    }
+
+    .profile{
+        margin-top: 30px;
+    }
+    .profile-icon {
+        margin-left: 10px;
+    }
+    .button-div button i{
+        font-size: 27px;
+    }
+    .button-div .forward-button{
+        margin-left: 0px;
     }
 }
 

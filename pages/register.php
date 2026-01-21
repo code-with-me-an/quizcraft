@@ -26,11 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register page</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../assets/favicon/site.webmanifest">
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/RegisLogin.css">
 </head>
@@ -45,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span id="nameErr"></span>
                 <input type="username" name="username" placeholder="username" id="username">
                 <span id="usernameErr"></span>
-                <label id="password" >
+                <label id="password">
                     <input type="password" name="password" id="pwd" placeholder="Password" required>
                     <button id="viewPassword" type="button" onclick="view_password()">
                         <i class="fa-regular fa-eye eye"></i>
@@ -59,17 +60,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
     <script>
-        function view_password(){
+        function view_password() {
             const pwd = document.getElementById("pwd");
             const viewPassword = document.getElementById("viewPassword");
-            if(pwd.type === "password"){
+            if (pwd.type === "password") {
                 pwd.type = "text";
                 viewPassword.classList.add("active");
-            }else{
+            } else {
                 pwd.type = "password";
                 viewPassword.classList.remove("active");
             }
         }
+
         function validate() {
             let nameErr = document.getElementById('nameErr');
             let usernameErr = document.getElementById('usernameErr');
@@ -99,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             let lengthFlag = true;
             let formatFlag = true;
-            
+
             if (username == '' || username == null) {
                 usernameErr.innerText = '*Username is required';
                 validateFlag = false;

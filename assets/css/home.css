@@ -903,6 +903,7 @@ footer .last-footer p a:hover {
     footer {
         height: 600px;
         margin-top: 50px;
+        justify-content: space-around;
     }
 
     .footer {

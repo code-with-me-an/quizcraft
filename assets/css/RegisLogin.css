@@ -68,6 +68,24 @@ body {
     color: var(--font-black);
     margin: 10px;
 }
+.form-box form button {
+    width: 50%;
+    padding: 12px;
+    background-color: var(--blue-color);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--white-color);
+    font-weight: 500;
+    margin: 10px;
+    transition: 0.5s;
+}
+
+.form-box button:hover {
+    background: var(--orange-color);
+}
+
 .form-box #password{
     position: relative;
     width: 100%;
@@ -91,8 +109,7 @@ body {
 
 .form-box #password #viewPassword{
     position: absolute;
-    right: 20px;
-    bottom: 12px;
+    right: -20%;
     border: none;
     background: none;
     outline: none;
@@ -129,23 +146,7 @@ body {
     outline: 1.7px solid var(--light-border);
 }
 
-.form-box form > button {
-    width: 50%;
-    padding: 12px;
-    background-color: var(--blue-color);
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    color: var(--white-color);
-    font-weight: 500;
-    margin: 10px;
-    transition: 0.5s;
-}
 
-.form-box button:hover {
-    background: var(--orange-color);
-}
 
 .form-box p {
     font-size: 14.5px;

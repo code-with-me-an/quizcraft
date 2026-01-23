@@ -108,8 +108,11 @@ body {
 }
 
 .form-box #password #viewPassword{
+    width: 30px;
+    margin: 0px;
+    padding: 0px;
     position: absolute;
-    right: -20%;
+    right: 3%;
     border: none;
     background: none;
     outline: none;

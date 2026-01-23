@@ -4,11 +4,11 @@ session_start();
 $error = '';
 
 $sql = "SELECT Count(*) as total_users FROM users";
-$table = mysqli_query($conn,$sql);
+$table = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($table);
 $userCount = $row["total_users"] ?? 100;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (!empty($_POST['submit'])) {
     $link = $_POST['link'] ?? '';
     $examinee = $_POST['examinee'] ?? '';
     $link = trim($link);
@@ -38,9 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     } else {
                         $_SESSION['share_code'] = $link;
                         $_SESSION['examinee'] = $examinee;
-                        echo "<script>
-                            window.open('pages/OnlineQuiz.php','_blank');
-                        </script>";
+                        header("Location: pages/OnlineQuiz.php");
                     }
                 }
             } else {
@@ -139,13 +137,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
             <div class="join-container">
-                <form action="index.php" method="post" id="form">
+                <form action="index.php" method="post" id="form" onsubmit="return submitForm()">
                     <div class="quizBox" id="quizBox">
                         <h2>Join Quiz</h2>
                         <?php echo "<p class='error-message'>$error</p>"; ?>
                         <input type="text" placeholder="Paste share code here" name="link">
                         <input type="text" placeholder="Enter name" name="examinee">
-                        <button type="button" onclick="submitForm()">Join Quiz</button>
+                        <button type="submit" name="submit" value="do">Join Quiz</button>
                     </div>
                 </form>
             </div>
@@ -182,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="peoplecount">
-            <p><span id="people_number" >0</span>+ People Used</p>
+            <p><span id="people_number">0</span>+ People Used</p>
         </div>
     </main>
     <footer>
@@ -219,17 +217,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="last-footer">
             <p>&copy; 2026 Quizcraft, All Rights Reserved. | Made with in India</p>
             <p><a href="https://github.com/code-with-me-an/quizcraft">Visit our GitHub Repository</a></p>
-        </div>  
+        </div>
     </footer>
     <script>
         const userCount = <?php echo $userCount; ?>;
+
         function submitForm() {
             link = document.getElementsByName('link')[0].value.trim();
             examinee = document.getElementsByName('examinee')[0].value.trim();
             if ((link == null || link == '') || (examinee == null || examinee == '')) {
                 window.alert("Please fill the options");
+                return false;
             } else {
-                document.getElementById('form').submit();
+                return true;
             }
         }
     </script>

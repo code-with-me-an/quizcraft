@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <nav>
             <div class="logo">
-                <a href="index.php"><img src="../assets/images/logo.png" alt="Logo"></a>
+                <a href="logged.php"><img src="../assets/images/logo.png" alt="Logo"></a>
             </div>
             <div class="profile">
                 <a href="profile.php"><img src="../assets/images/profile.png" alt="profile" width="20"></a>

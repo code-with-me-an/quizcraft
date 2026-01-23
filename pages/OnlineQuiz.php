@@ -5,8 +5,6 @@ $title = $description = '';
 $error = '';
 date_default_timezone_set('Asia/Kolkata');
 
-
-
 if (!empty($_SESSION['share_code'])) {
     $share_code =  $_SESSION['share_code'] ?? '';
     $sql = "SELECT * FROM quizzes WHERE share_code = '$share_code'";
@@ -47,11 +45,7 @@ if (!empty($_SESSION['share_code'])) {
 
 
 if (!empty($_POST['submit'])) {
-    if (empty($_SESSION['examinee'])) {
-        echo "<script>window.alert('Already submitted');
-        window.close();
-        </script>";
-    } else {
+    if (!empty($_SESSION['examinee'])) {
         $examinee = $_SESSION['examinee'] ?? '';
         $ans = $_POST['answer'] ?? [];
         $total = count($ans);
@@ -95,7 +89,6 @@ if (!empty($_POST['submit'])) {
             $scoreTotal = $score;
             echo "<script>window.alert('Submitted successfully');</script>";
             unset($_SESSION['share_code'], $_SESSION['examinee']);
-            // exit();
         }
     }
 }
@@ -124,26 +117,39 @@ if (!empty($_POST['submit'])) {
 
 <body>
     <?php
-    echo "<div class='online-container'>";
-    echo "<form action='OnlineQuiz.php' method='post'>";
-    echo "<div class='quizBox' id='quizBox'>";
-    echo "<h2>$title</h2>";
-    echo "<p>$description</p>";
-    echo "<p class='error-message'>$error</p>";
-    echo isset($scoreTotal) ? "<p class='score-message'>Your Score $scoreTotal / $total</p>" : '';
-    if (!empty($quizzes)) {
-        foreach ($quizzes as $qno => $question) {
-            echo "<h3>" . $qno . ". " . $question['question_text'] . "</h3>";
-            echo "<label class='option'>A.<input type='radio' name = 'answer[$qno]' value = 'A'>&nbsp;" . $question['option_a'] . "</label>";
-            echo "<label class='option'>B.<input type='radio' name = 'answer[$qno]' value = 'B'>&nbsp;" . $question['option_b'] . "</label>";
-            echo "<label class='option'>C.<input type='radio' name = 'answer[$qno]' value = 'C'>&nbsp;" . $question['option_c'] . "</label>";
-            echo "<label class='option'>D.<input type='radio' name = 'answer[$qno]' value = 'D'>&nbsp;" . $question['option_d'] . "</label>";
+    if (!empty($_SESSION['examinee'])) {
+        echo "<div class='online-container'>";
+        echo "<form action='OnlineQuiz.php' method='post'>";
+        echo "<div class='quizBox' id='quizBox'>";
+        echo "<h2>$title</h2>";
+        echo "<p>$description</p>";
+        echo "<p class='error-message'>$error</p>";
+        if (!empty($quizzes)) {
+            foreach ($quizzes as $qno => $question) {
+                echo "<h3>" . $qno . ". " . $question['question_text'] . "</h3>";
+                echo "<label class='option'>A.<input type='radio' name = 'answer[$qno]' value = 'A'>&nbsp;" . $question['option_a'] . "</label>";
+                echo "<label class='option'>B.<input type='radio' name = 'answer[$qno]' value = 'B'>&nbsp;" . $question['option_b'] . "</label>";
+                echo "<label class='option'>C.<input type='radio' name = 'answer[$qno]' value = 'C'>&nbsp;" . $question['option_c'] . "</label>";
+                echo "<label class='option'>D.<input type='radio' name = 'answer[$qno]' value = 'D'>&nbsp;" . $question['option_d'] . "</label>";
+            }
+        }
+        echo "<button type='submit' name='submit' value='do'>Submit Quiz</button>";
+        echo "</div>";
+        echo "</form>";
+        echo "</div>";
+    } else {
+        if (isset($score)) {
+            echo "<div class='scoreBox' id='quizBox'>";
+            echo "<h2>Thank you for submitting</h2>";
+            echo "<p>Your responses have been recorded</p>";
+            echo "<p class='score-message'>Your Score $score / $total</p>";
+            echo "<a href='OnlineQuiz.php' >join another quiz</a>";
+            echo "</div>";
+        } else {
+            header("Location: joinQuiz.php");
+            exit();
         }
     }
-    echo "<button type='submit' name='submit' value='do'>Submit Quiz</button>";
-    echo "</div>";
-    echo "</form>";
-    echo "</div>";
     ?>
     <script>
 

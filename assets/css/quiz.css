@@ -138,8 +138,7 @@ body {
 }
 
 .online-container .quizBox {
-    width: 100%;
-    min-width: 400px;
+    width: 500px;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -211,8 +210,7 @@ body {
 
 @media (max-width:500px) {
     .online-container .quizBox {
-        width: 100%;
-        min-width: 77vw;
+        width: 95vw;
     }
 
 }
@@ -224,12 +222,56 @@ body {
     margin-bottom: 10px;
 }
 
-.online-container .score-message {
+
+.scoreBox{
+    width: 400px;
+    height: 200px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e3e3e3;
+    border-radius: 10px;
+    border: 2px solid var(--light-border);
+    box-shadow: 0 0 10px var(--font-white);
+}
+
+.scoreBox h2{
+    font-size: 25px;
+    text-align: center;
+    color: var(--blue-color);
+}
+.scoreBox p:nth-child(2){
+    font-size: 14px;
+    text-align: center;
+    color: var(--font-black);
+}
+
+.scoreBox .score-message {
     color: #27bf4dff;
     text-align: center;
+    font-weight: bolder;
     font-size: 18px;
-    margin-bottom: 10px;
 }
+.scoreBox a{
+    color:var(--blue-color);
+    text-decoration: none;
+}
+.scoreBox a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width:500px) {
+    .scoreBox {
+        width: 95vw;
+    }
+    .scoreBox h2{
+        font-size: 24px;
+    }
+
+}
+
 
 /* generate quiz styling */
 
@@ -343,15 +385,3 @@ p {
 
 
 
-
-
-
-/* jbibscao
-
-
-
-body {
-            
-        }
-
-        */

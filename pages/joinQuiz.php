@@ -4,7 +4,7 @@ session_start();
 $error = '';
 $ShareCode = $_GET["code"] ?? '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (!empty($_POST['submit'])) {
     $link = $_POST['link'] ?? '';
     $examinee = $_POST['examinee'] ?? '';
     $link = trim($link);
@@ -34,9 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     } else {
                         $_SESSION['share_code'] = $link;
                         $_SESSION['examinee'] = $examinee;
-                        echo "<script>
-                            window.open('OnlineQuiz.php','_blank');
-                        </script>";
+                        header("Location: OnlineQuiz.php");
+                        exit();
                     }
                 }
             } else {
@@ -73,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="join-container">
-        <form action="joinQuiz.php" method="post" id="form">
+        <form action="joinQuiz.php" method="post" id="form" onsubmit="return submitForm()">
             <div class="quizBox" id="quizBox">
                 <h2>Join Quiz</h2>
                 <?php
@@ -81,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<input type='text' placeholder='Paste share code here' name='link' value=$ShareCode>";
                 ?>
                 <input type="text" placeholder="Enter name" name="examinee">
-                <button type="button" onclick="submitForm()">Join Quiz</button>
+                <button type="submit" name='submit' value='do'>Join Quiz</button>
             </div>
         </form>
 
@@ -92,8 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             examinee = document.getElementsByName('examinee')[0].value.trim();
             if ((link == null || link == '') || (examinee == null || examinee == '')) {
                 window.alert("Please fill the options");
+                return false;
             } else {
-                document.getElementById('form').submit();
+                return true;
             }
         }
     </script>
